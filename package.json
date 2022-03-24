@@ -14,7 +14,6 @@
     "imgbb.com"
   ],
   "dependencies": {
-    "bluebird": "^3.7.2",
     "express": "^4.17.3",
     "express-fileupload": "^1.3.1",
     "gm": "^1.23.1",
