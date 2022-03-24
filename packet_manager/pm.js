@@ -1,10 +1,13 @@
 const configs = {
-  host: 'api.imgbb.com',
-  token: 'e91274cf3048755d8da2531e5878a1e4',
-  path: '/1/upload',
-  port: 80,
+  token: 'a0fa392412f9b19872a70807b1618f5d',
 };
 
 module.exports.configs = configs;
 
-module.exports.makeJSON = (data) => {};
+module.exports.makeJSON = (finalData) => {
+  const dataMap = new Map();
+  for (const i in finalData) {
+    if (Object.prototype.hasOwnProperty) dataMap.set(`image_${i}`, `${finalData[i].url}`);
+  }
+  return JSON.stringify(Object.fromEntries(dataMap));
+};
