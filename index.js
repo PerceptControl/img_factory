@@ -10,6 +10,8 @@ const bridge = require('./bridge/bridge');
 const app = express();
 const PORT = 4000;
 
+app.set('view engine', 'ejs');
+
 app.use(fileUpload());
 app.use('/upload_form', express.static('upload_form'));
 app.use(express.static('/'));
@@ -34,8 +36,10 @@ app.post('/upload', async (req, res) => {
 
   Promise.all(promises)
     .then((response) => {
-      dataManager.save(packetManager.makeJSON(response));
-      res.send(packetManager.makeJSON(response));
+      const filteredRes = packetManager.filter(response);
+      dataManager.save(JSON.stringify(filteredRes));
+      console.log(filteredRes);
+      res.render('final', { data: filteredRes })
     })
     .catch((err) => console.error(err));
 });

@@ -1,13 +1,13 @@
 const configs = {
-  token: 'a0fa392412f9b19872a70807b1618f5d',
+  token: 'a4839cda76053a8f3d02b59d4312aaba',
 };
 
 module.exports.configs = configs;
 
-module.exports.makeJSON = (finalData) => {
+module.exports.filter = (finalData) => {
   const dataMap = new Map();
   for (const i in finalData) {
     if (Object.prototype.hasOwnProperty) dataMap.set(`image_${i}`, `${finalData[i].url}`);
   }
-  return JSON.stringify(Object.fromEntries(dataMap));
+  return Object.fromEntries(dataMap);
 };

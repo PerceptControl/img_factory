@@ -1,0 +1,86 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+
+<% for(var key in data) { %>
+  <div class="container">
+    <div class="content-image">
+      <img src= <%=`${data[key]}`%>/>
+    </div>
+    <div class="content-control">
+      <input onclick="copyText(this)" value=<%=`${data[key]}`%> readonly></input>
+    </div>
+  </div>
+<% } %>
+
+
+<script type="text/javascript">
+  function copyText(element) {
+    element.select();
+    document.execCommand("Copy");
+  }
+</script>
+<style>
+  * {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  z-index: 1;
+  position: relative;
+}
+
+body {
+  background: #dadada;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12.66vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 2.6vw 0px;
+  grid-auto-flow: column;
+  grid-template-areas:
+    "content-image"
+    "content-control";
+}
+
+.content-image {
+  grid-area: content-image;
+  align-self: center;
+  justify-self: center;
+}
+
+.content-control {
+  grid-area: content-control;
+  align-self: center;
+  justify-self: center;
+}
+
+
+img {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: auto;
+  border-radius: 60px;
+  box-shadow:  5px 5px 6px #8e8e8e,
+             -5px -5px 6px #ffffff;
+}
+
+input {
+  background: rgba(0, 0, 0, 0);
+  width:100%;
+  border:0;
+  text-align: center;
+  font-size: 1.2vw;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 0px 0px 6px white;
+}
+</style>
