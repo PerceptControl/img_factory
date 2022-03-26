@@ -30,7 +30,7 @@ app.post('/upload', async (req, res) => {
 
   for (const i in sendData.files) {
     if (Object.prototype.hasOwnProperty) {
-      promises.push(bridge.transfer(packetManager.configs, sendData.files[i]));
+      promises.push(bridge.transfer(req.body.token, sendData.files[i]));
     }
   }
 

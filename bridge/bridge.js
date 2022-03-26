@@ -1,9 +1,9 @@
 const upload = require('imgbb-uploader');
 
 
-module.exports.transfer = async (configs, postFile) => {
+module.exports.transfer = async (token, postFile) => {
   const postObject = {
-    apiKey: configs.token,
+    apiKey: token,
     base64string: postFile.toString('base64'),
   };
 

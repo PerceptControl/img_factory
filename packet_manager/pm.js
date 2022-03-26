@@ -1,9 +1,3 @@
-const configs = {
-  token: 'a4839cda76053a8f3d02b59d4312aaba',
-};
-
-module.exports.configs = configs;
-
 module.exports.filter = (finalData) => {
   const dataMap = new Map();
   for (const i in finalData) {
